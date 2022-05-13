@@ -1,59 +1,75 @@
-public class JavaApplication1 {
-    public static void main(String[] args) {
-        Scanner leia = new Scanner(System.in);
+ public class JavaApplication1 {
+        public static void main(String[] args) {
+            Scanner leia = new Scanner(System.in);
+
+            String nome;
+            double n1, n2, media = 0;
+            char sair;
+            int contr = 0;
+            int conta = 0;
+            int total = 0;
+            double mediag = 0;
+            int i = 1;
+            do {
+
+                System.out.println("Informe o nome do aluno: ");
+                nome = leia.nextLine();
+
+                System.out.println("Informe a primeira nota ");
+                n1 = leia.nextDouble();
+
+                while(n1 < 0 || n1 > 10){
+                System.out.println("Nota inválida, tente novamente: ");
+                n1 = leia.nextDouble();
+                }
+
+                System.out.println("Informe a segunda nota ");
+                n2 = leia.nextDouble();
+
+                while(n2 < 0 || n2 > 10){
+                System.out.println("Nota inválida, tente novamente: ");
+                n2 = leia.nextDouble();
+                }
+                if(n1 <= 10 && n1 > 0 && n2 <= 10 && n2 > 0){
+
+                media = (n1+n2)/2;
+                
+                }
+
+                if(media >= 6){
+
+                    System.out.println("Parabéns " + nome + " você foi aprovado com a nota de " + media);
+
+
+                    conta++;
+
+                }
+
+             if(media < 6){
+
+                    System.out.println(" O aluno " + nome + " foi reprovado com a nota de " + media);
+
+                    contr++;
+                }
+
+             
+                total = conta + contr;
+                mediag = (mediag + media)/i;
+                i++;
+
+                System.out.println("pressione (n) para sair e (c) para continuar");
+                sair = leia.next().charAt(0);
+                
+                leia.nextLine();
+                 
+             }while(sair == 'c' || sair == 'S'); 
+
+            System.out.println("Média Geral: " + mediag);
+            System.out.println("Total de alunos: " + total);
+            System.out.println("Alunos aprovado: " + conta);
+            System.out.println("Alunos reprovados: " + contr);
+            
         
-        String nome;
-        double n1, n2, media = 0;
-        char sair;
-        int contr = 0;
-        int conta = 0;
-        do {
-            
-            System.out.println("Informe o nome do aluno: ");
-            nome = leia.nextLine();
-            
-            System.out.println("Informe a primeira nota ");
-            n1 = leia.nextDouble();
-            
-            while(n1 < 0 || n1 > 10){
-            System.out.println("Nota inválida, tente novamente: ");
-            n1 = leia.nextDouble();
-            }
         
-            System.out.println("Informe a segunda nota ");
-            n2 = leia.nextDouble();
-            
-            while(n2 < 0 || n2 > 10){
-            System.out.println("Nota inválida, tente novamente: ");
-            n2 = leia.nextDouble();
-            }
-            if(n1 <= 10 && n1 > 0 && n2 <= 10 && n2 > 0){
-           
-            media = (n1+n2)/2;
-            }
         
-            if(media >= 6){
-                
-                System.out.println("Parabéns " + nome + " você foi aprovado com a nota de " + media);
-                
-                
-                conta++;
-                
-            }
-         
-         if(media < 6){
-                
-                System.out.println(" O aluno " + nome + " foi reprovado com a nota de " + media);
-                
-                contr++;
-            }
-            
-            
-            System.out.println("Deseja sair? pressione n ");
-            sair = leia.next().charAt(0);
-            
-                    
-         }while(sair != 'n'); 
-    
-        System.out.println("Alunos aprovado: " + conta);
-        System.out.println("Alunos reprovados: " + contr);
+        
