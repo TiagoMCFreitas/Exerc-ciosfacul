@@ -1,75 +1,92 @@
- public class JavaApplication1 {
-        public static void main(String[] args) {
-            Scanner leia = new Scanner(System.in);
+import java.util.Scanner;
 
-            String nome;
-            double n1, n2, media = 0;
-            char sair;
-            int contr = 0;
-            int conta = 0;
-            int total = 0;
-            double mediag = 0;
-            int i = 1;
-            do {
+public class exercicio_nota {
 
-                System.out.println("Informe o nome do aluno: ");
-                nome = leia.nextLine();
+    public static void main(String[] args) {
+        Scanner leia = new Scanner(System.in);
 
-                System.out.println("Informe a primeira nota ");
-                n1 = leia.nextDouble();
+        String nome;
+        double n1, n2, media = 0, aux = 0;
+        char sair;
+        int contr = 0;
+        int conta = 0;
+        int total = 0;
+        double mediag = 0;
+        double mediai = 0;
+        double mediam = 10;
+        int i = 1;
+        String nomei = "nomeMaior";
+        String nomem = "nomeMenor";
+        do {
 
-                while(n1 < 0 || n1 > 10){
+            System.out.println("Informe o nome do aluno: ");
+            nome = leia.nextLine();
+
+            System.out.println("Informe a primeira nota ");
+            n1 = leia.nextDouble();
+
+            while (n1 < 0 || n1 > 10) {
                 System.out.println("Nota inválida, tente novamente: ");
                 n1 = leia.nextDouble();
-                }
+            }
 
-                System.out.println("Informe a segunda nota ");
-                n2 = leia.nextDouble();
+            System.out.println("Informe a segunda nota ");
+            n2 = leia.nextDouble();
 
-                while(n2 < 0 || n2 > 10){
+            while (n2 < 0 || n2 > 10) {
                 System.out.println("Nota inválida, tente novamente: ");
                 n2 = leia.nextDouble();
-                }
-                if(n1 <= 10 && n1 > 0 && n2 <= 10 && n2 > 0){
+            }
+            if (n1 <= 10 && n1 > 0 && n2 <= 10 && n2 > 0) {
 
-                media = (n1+n2)/2;
-                
-                }
+                media = (n1 + n2) / 2;
 
-                if(media >= 6){
+            }
 
-                    System.out.println("Parabéns " + nome + " você foi aprovado com a nota de " + media);
+            if (media >= 6) {
 
+                System.out.println("Parabéns " + nome + " você foi aprovado com a nota de " + media);
 
-                    conta++;
+                conta++;
 
-                }
+            }
 
-             if(media < 6){
+            if (media < 6) {
 
-                    System.out.println(" O aluno " + nome + " foi reprovado com a nota de " + media);
+                System.out.println(" O aluno " + nome + " foi reprovado com a nota de " + media);
 
-                    contr++;
-                }
+                contr++;
+            }
 
-             
-                total = conta + contr;
-                mediag = (mediag + media)/i;
-                i++;
+            total = conta + contr;
+            mediag = (aux + media) / i;
+            aux = mediag + aux;
+            i++;
 
-                System.out.println("pressione (n) para sair e (c) para continuar");
-                sair = leia.next().charAt(0);
-                
-                leia.nextLine();
-                 
-             }while(sair == 'c' || sair == 'S'); 
+            if (media > mediai && media >= 6) {
+                mediai = media;
+                nomei = nome;
+            }
 
-            System.out.println("Média Geral: " + mediag);
-            System.out.println("Total de alunos: " + total);
-            System.out.println("Alunos aprovado: " + conta);
-            System.out.println("Alunos reprovados: " + contr);
-            
-        
-        
-        
+            if (media < mediam && media < 6) {
+                mediam = media;
+                nomem = nome;
+            }
+
+            System.out.println("pressione (n) para sair e (c) para continuar");
+            sair = leia.next().charAt(0);
+
+            leia.nextLine();
+
+        } while (sair == 'c');
+
+        System.out.println("O aluno de melhor nota foi o(a) " + nomei + " com a nota de " + mediai);
+        System.out.println("O aluno de pior nota foi o(a) " + nomem + " com a nota de " + mediam);
+        System.out.println("Média Geral: " + mediag);
+        System.out.println("Total de alunos: " + total);
+        System.out.println("Alunos aprovado: " + conta);
+        System.out.println("Alunos reprovados: " + contr);
+    }
+}
+
         
